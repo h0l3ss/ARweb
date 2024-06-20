@@ -13,16 +13,17 @@
 </head>
 <body>
 
-  <a-scene embedded>
+  <a-scene embedded arjs>
     <!-- Marcador para rastreamento -->
     <a-marker type="pattern" url="AR/QRCode.patt">
-      <!-- Modelo 3D .gltf com animação de rotação -->
-      <a-entity gltf-model="AR/IMG_1272.MP4" scale="0.1 0.1 0.1" position="0 0.1 0"
-                animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
-      </a-entity>
+      <!-- Vídeo MP4 -->
+      <a-video src="#video" width="4" height="2.25" position="0 0.1 0"></a-video>
     </a-marker>
     <!-- Câmera para visualizar a cena -->
     <a-entity camera></a-entity>
+    
+    <!-- Definição do vídeo -->
+    <video id="video" src="AR/IMG_1272.MP4" autoplay loop playsinline></video>
   </a-scene>
 
 </body>
