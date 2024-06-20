@@ -17,29 +17,13 @@
     <!-- Marcador para rastreamento -->
     <a-marker type="pattern" url="AR/pattern-hiro.patt">
       <!-- Modelo 3D .gltf com animação de rotação -->
-      <a-entity id="gltfModel" gltf-model="AR/Motor.gltf" scale="0.1 0.1 0.1" position="0 0.1 0"
+      <a-entity gltf-model="AR/Motor.gltf" scale="0.1 0.1 0.1" position="0 0.1 0"
                 animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
       </a-entity>
     </a-marker>
     <!-- Câmera para visualizar a cena -->
     <a-entity camera></a-entity>
   </a-scene>
-
-  <script>
-    // Função para verificar a orientação e redirecionar para a página inicial quando estiver vertical
-    function checkOrientationAndRedirect() {
-      if (window.innerWidth < window.innerHeight) {
-        // Se a largura for menor que a altura, o dispositivo está na orientação vertical
-        window.location.href = 'index.html'; // Redireciona de volta para a página inicial
-      }
-    }
-
-    // Verifica a orientação inicial ao carregar a página
-    checkOrientationAndRedirect();
-
-    // Verifica a orientação ao mudar a orientação do dispositivo
-    window.addEventListener('orientationchange', checkOrientationAndRedirect);
-  </script>
 
 </body>
 </html>
