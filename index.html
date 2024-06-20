@@ -6,11 +6,11 @@
   <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.1.7/aframe/build/aframe-ar.js"></script>
 </head>
 <body style="margin: 0; overflow: hidden;">
-  <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+  <a-scene embedded arjs="sourceType: webxr; debugUIEnabled: false;">
     <!-- Marker for tracking -->
     <a-marker type="pattern" url="AR/pattern-hiro.patt"> <!-- Caminho ajustado -->
       <!-- Plane to display the image -->
-      <a-plane id="imagePlane" position="0 0 0" rotation="-90 0 0" width="4" height="2.25" material="shader: flat; scale: 2 2 2; src:AR/capture.jpg"></a-plane> <!-- Caminho ajustado -->
+      <a-plane id="imagePlane" position="0 0 0" rotation="-90 0 0" width="4" height="2.25" material="shader: flat; scale: 2 2 2; src=AR/capture.jpg"></a-plane> <!-- Caminho ajustado -->
     </a-marker>
     <!-- Camera to view the scene -->
     <a-entity camera></a-entity>
