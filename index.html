@@ -9,8 +9,8 @@
   <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
     <!-- Marcador para rastreamento -->
     <a-marker type="pattern" url="AR/pattern-hiro.patt">
-      <!-- Modelo 3D .gltf -->
-      <a-gltf-model src="AR/Motor.gltf" scale="0.1 0.1 0.1" position="0 0.1 0"></a-gltf-model>
+      <!-- Modelo 3D .gltf com animação de rotação -->
+      <a-entity gltf-model="AR/Motor.gltf" scale="0.1 0.1 0.1" position="0 0.1 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"></a-entity>
     </a-marker>
     <!-- Câmera para visualizar a cena -->
     <a-entity camera></a-entity>
