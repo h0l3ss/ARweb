@@ -3,14 +3,14 @@
 <head>
   <title>Realidade Aumentada com AR.js</title>
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-  <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.1.7/aframe/build/aframe-ar.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@jeromeetienne/ar.js@3.1.5/aframe/build/aframe-ar.js"></script>
 </head>
 <body style="margin: 0; overflow: hidden;">
   <a-scene embedded arjs="sourceType: webcam; sourceWidth: 1560; sourceHeight: 720; displayWidth: 1560; displayHeight: 720; debugUIEnabled: false;">
     <!-- Marcador para rastreamento -->
     <a-marker type="pattern" url="AR/pattern-hiro.patt">
       <!-- Modelo 3D .gltf -->
-      <a-gltf-model src="AR/Motor.gltf" scale="1 1 1" position="0 0 0"></a-gltf-model>
+      <a-gltf-model src="AR/Motor.gltf" scale="2 2 2" position="0 0 0"></a-gltf-model>
     </a-marker>
     <!-- Câmera para visualizar a cena -->
     <a-entity camera></a-entity>
