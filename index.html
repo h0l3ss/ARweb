@@ -38,14 +38,7 @@
     }
 
     // Função para carregar AR
-    function loadAR() {
-      const scene = document.querySelector('a-scene');
-      scene.setAttribute('embedded', ''); // Garante que o AR seja em tela cheia no celular
-      scene.setAttribute('arjs', 'sourceType: webcam; debugUIEnabled: false;');
 
-      // Remove a mensagem de rotacionar após carregar AR
-      document.getElementById('rotateMessage').style.display = 'none';
-    }
 
     // Verifica a orientação inicial ao carregar a página
     setTimeout(checkOrientationAndLoadAR, 10000); // Delay de 10 segundos antes de verificar a orientação
