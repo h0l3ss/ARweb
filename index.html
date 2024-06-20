@@ -6,7 +6,7 @@
   <script src="https://raw.githack.com/AR-js-org/AR.js/3.0.0/aframe/build/aframe-ar-nft.js"></script>
   <style>
     #rotateMessage {
-      display: block; /* Inicialmente exibido */
+      display: none;
       position: fixed;
       top: 50%;
       left: 50%;
@@ -17,9 +17,6 @@
       border-radius: 10px;
       z-index: 1000;
     }
-    #arContainer {
-      display: none; /* Inicialmente escondido */
-    }
   </style>
 </head>
 <body style="margin: 0; overflow: hidden;">
@@ -28,43 +25,16 @@
     <p>Por favor, gire o dispositivo para a orientação horizontal para visualizar a realidade aumentada.</p>
   </div>
 
-  <!-- Container da cena de AR -->
-  <div id="arContainer">
-    <a-scene embedded>
-      <!-- Marcador para rastreamento -->
-      <a-marker type="pattern" url="AR/pattern-hiro.patt">
-        <!-- Modelo 3D .gltf com animação de rotação -->
-        <a-entity gltf-model="AR/Motor.gltf" scale="0.1 0.1 0.1" position="0 0.1 0"
-                  animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
-        </a-entity>
-      </a-marker>
-      <!-- Câmera para visualizar a cena -->
-      <a-entity camera></a-entity>
-    </a-scene>
-  </div>
-
-  <script>
-    // Função para verificar a orientação e carregar AR quando estiver horizontal
-    function checkOrientationAndLoadAR() {
-      if (window.innerWidth > window.innerHeight) {
-        // Se a largura for maior que a altura, o dispositivo está na orientação horizontal
-        document.getElementById('rotateMessage').style.display = 'none'; // Esconde a mensagem
-        document.getElementById('arContainer').style.display = 'block'; // Mostra o container da cena de AR
-      } else {
-        // Se não, o dispositivo está na orientação vertical, exibir mensagem
-        document.getElementById('rotateMessage').style.display = 'block';
-        document.getElementById('arContainer').style.display = 'none'; // Esconde o container da cena de AR
-      }
-    }
-
-    // Verifica a orientação inicial ao carregar a página após 10 segundos
-    setTimeout(checkOrientationAndLoadAR, 10000);
-
-    // Verifica a orientação ao redimensionar a janela
-    window.addEventListener('resize', checkOrientationAndLoadAR);
-
-    // Verifica a orientação ao mudar a orientação do dispositivo
-    window.addEventListener('orientationchange', checkOrientationAndLoadAR);
-  </script>
+  <a-scene embedded>
+    <!-- Marcador para rastreamento -->
+    <a-marker type="pattern" url="AR/pattern-hiro.patt">
+      <!-- Modelo 3D .gltf com animação de rotação -->
+      <a-entity gltf-model="AR/Motor.gltf" scale="0.1 0.1 0.1" position="0 0.1 0"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+      </a-entity>
+    </a-marker>
+    <!-- Câmera para visualizar a cena -->
+    <a-entity camera></a-entity>
+  </a-scene>
 </body>
 </html>
