@@ -13,7 +13,7 @@
 </head>
 <body>
 
-  <a-scene embedded arjs>
+  <a-scene embedded>
     <!-- Marcador para rastreamento -->
     <a-marker type="pattern" url="AR/QRCode.patt">
       <!-- Vídeo MP4 -->
@@ -21,9 +21,8 @@
     </a-marker>
     <!-- Câmera para visualizar a cena -->
     <a-entity camera></a-entity>
-    
-    <!-- Definição do vídeo -->
     <video id="video" src="AR/IMG_1272.MP4" autoplay loop playsinline></video>
+
   </a-scene>
 
 </body>
