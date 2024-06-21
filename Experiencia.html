@@ -16,31 +16,15 @@
   <a-scene embedded arjs>
     <!-- Marcador para rastreamento -->
     <a-marker type="pattern" url="AR/pattern-Untitled.patt">
-      <!-- Vídeo MP4 -->
-      <a-video src="#video" width="6" height="4.5" position="-2.80 0 0" rotation="0 0 0"></a-video>
+      <!-- Modelo 3D com animação de rotação e tamanho -->
+      <a-entity gltf-model="AR/Motor.gltf" scale="0.1 0.1 0.1" position="0 0.1 0" 
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"
+                animation__scale="property: scale; to: 0.2 0.2 0.2; dir: alternate; dur: 2000; loop: true; easing: easeInOutSine">
+      </a-entity>
     </a-marker>
     <!-- Câmera para visualizar a cena -->
     <a-entity camera></a-entity>
-    
-    <!-- Definição do vídeo -->
-    <video id="video" src="AR/IMG_1272.MP4" autoplay loop playsinline></video>
   </a-scene>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const video = document.getElementById('video');
-      // Força o vídeo a tocar com som
-      video.muted = false;
-      video.volume = 1.0;
-
-      // Para garantir que o vídeo toque, mesmo em dispositivos móveis que bloqueiam a reprodução automática, adiciona um evento de toque
-      document.body.addEventListener('click', () => {
-        if (video.paused) {
-          video.play();
-        }
-      });
-    });
-  </script>
 
 </body>
 </html>
