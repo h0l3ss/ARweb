@@ -7,26 +7,25 @@
       margin: 0;
       overflow: hidden;
     }
-    #rotateMessage {
-      display: block;
+    #rotateVideo {
       position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: rgba(0, 0, 0, 0.8);
-      color: white;
-      padding: 20px;
-      border-radius: 10px;
-      z-index: 1000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
     }
   </style>
 </head>
 <body>
 
-  <!-- Mensagem para rotacionar o dispositivo -->
-  <div id="rotateMessage">
-    <p>Por favor, gire o dispositivo para a orientação horizontal para visualizar a realidade aumentada.</p>
-  </div>
+  <!-- Vídeo em loop para orientação horizontal -->
+  <video id="rotateVideo" autoplay loop muted>
+    <source src="AR/tutorial.mp4" type="video/mp4"> 
+    <!-- Caso o navegador não suporte o formato do vídeo -->
+    Seu navegador não suporta vídeos em HTML5.
+  </video>
 
   <script>
     // Função para verificar a orientação e redirecionar para a página de Experiencia quando estiver horizontal
@@ -34,9 +33,6 @@
       if (window.innerWidth > window.innerHeight) {
         // Se a largura for maior que a altura, o dispositivo está na orientação horizontal
         window.location.href = 'Experiencia.html'; // Redireciona para a página de Experiencia
-      } else {
-        // Se não, o dispositivo está na orientação vertical, manter mensagem visível
-        document.getElementById('rotateMessage').style.display = 'block';
       }
     }
 
