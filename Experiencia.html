@@ -17,14 +17,48 @@
     <!-- Marcador para rastreamento -->
     <a-marker type="pattern" url="AR/pattern-Untitled.patt">
       <!-- Modelo 3D com animação de rotação e tamanho -->
-      <a-entity gltf-model="AR/Motor.gltf" scale="1 1 1" position="0 0 0" rotation="90 0 0"
+      <a-entity id="motorModel"
+                gltf-model="AR/Motor.gltf"
+                scale="1 1 1"
+                position="0 0 0"
+                rotation="90 0 0"
                 animation="property: rotation; to: 90 360 0; loop: true; dur: 10000"
                 animation__scale="property: scale; to: 0.2 0.2 0.2; dir: alternate; dur: 2000; loop: true; easing: easeInOutSine">
       </a-entity>
     </a-marker>
+    
+    <!-- Modelo 3D mantido visível mesmo sem marcador -->
+    <a-entity id="motorModelStatic"
+              gltf-model="AR/Motor.gltf"
+              scale="1 1 1"
+              position="0 0 0"
+              rotation="90 0 0"
+              visible="false">
+    </a-entity>
+
     <!-- Câmera para visualizar a cena -->
     <a-entity camera></a-entity>
   </a-scene>
+
+  <script>
+    // Evento disparado quando o marcador é encontrado
+    document.querySelector('a-marker').addEventListener('markerFound', function() {
+      console.log('Marcador encontrado!');
+      // Torna o modelo dinâmico visível
+      document.querySelector('#motorModel').setAttribute('visible', true);
+      // Esconde o modelo estático
+      document.querySelector('#motorModelStatic').setAttribute('visible', false);
+    });
+
+    // Evento disparado quando o marcador é perdido
+    document.querySelector('a-marker').addEventListener('markerLost', function() {
+      console.log('Marcador perdido!');
+      // Torna o modelo dinâmico invisível
+      document.querySelector('#motorModel').setAttribute('visible', false);
+      // Torna o modelo estático visível
+      document.querySelector('#motorModelStatic').setAttribute('visible', true);
+    });
+  </script>
 
 </body>
 </html>
